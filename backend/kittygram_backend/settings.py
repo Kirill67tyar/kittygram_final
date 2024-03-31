@@ -9,11 +9,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY', get_random_secret_key())
 
-NO_PROD = 'no_prodaction'
+DEBUG = os.getenv('DEBUG')
 
-DEBUG = os.getenv('DEBUG', NO_PROD)
-
-if DEBUG == NO_PROD:
+if DEBUG == 'no_prodaction' or not DEBUG:
     DEBUG = False
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split()

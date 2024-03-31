@@ -24,6 +24,8 @@ services:
       # - media:/app/backend/media
       - media:/media
       # - media:/media/cats/images/
+    depends_on:
+      - db
   
   frontend:
     build: ./frontend/
@@ -45,3 +47,5 @@ services:
       - media:/media/cats/images/
       # - media:/backend_media
       # - media:/var/www/kittygram/media/
+    depends_on:
+      - backend

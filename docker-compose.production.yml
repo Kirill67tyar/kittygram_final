@@ -19,6 +19,8 @@ services:
     volumes:
       - static:/backend_static
       - media:/media
+    depends_on:
+      - db
   
   frontend:
     image: kirillbogomolov7ric/kittygram_frontend
@@ -35,3 +37,5 @@ services:
     volumes:
       - static:/static
       - media:/media/cats/images/
+    depends_on:
+      - backend
